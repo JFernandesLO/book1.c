@@ -1,0 +1,201 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+void exercise_1(){
+    int array[7];
+    for(int i = 0; i < 6; i++){
+        scanf("%d", &array[i]);
+    }
+    for(int i = 0; i < 6; i++){
+        printf("%d ", array[i]);
+    }
+}
+void exercise_2(){
+    int array[7];
+    for(int i = 0; i < 6; i++){
+        scanf("%d", &array[i]);
+    }
+    for(int i = 5; i >= 0; i--){
+        printf("%d ", array[i]);
+    }
+}
+void exercise_3(){
+    int array[6];
+    float sum = 0;
+    for(int i = 0; i < 5; i++){
+        scanf("%d", &array[i]);
+        sum += array[i];
+    }
+    for(int i = 0; i < 5; i++){
+        printf("%d ", array[i]);
+    }
+    printf("%f", (sum/5.0));
+}
+void exercise_4(){
+    int A[] = {1, 0, 5, -2, -5, 7};
+    int sum = A[0] + A[1] + A[5];
+    printf("%d", sum);
+    A[4] = 100;
+    for(int i = 0; i <= 5; i++){
+        printf("%d\n", A[i] );
+    }
+}
+void exercise_5(){
+    int array[9];
+    for(int i = 0; i < 8; i++){
+        scanf("%d", &array[i]);
+    }
+    int x = 0, y = 0, sum = 0;
+    scanf("%d %d", &x, &y);
+    sum = array[x] + array [y];
+    printf("%d", sum);
+}
+void exercise_6(){
+    int array[11];
+    int even = 0;
+    for(int i = 0; i < 10; i++){
+        scanf("%d", &array[i]);
+        if(array[i] % 2 == 0){
+            even++;
+        }
+    }
+    printf("%d", even);
+}
+void exercise_7(){
+    int array[11];
+    int bigger = array[0];
+    int smaller;
+    for(int i = 0; i < 10; i++){
+        scanf("%d", &array[i]);
+        if(array[i] >= bigger){
+            bigger = array[i];
+        }
+        if(array[i] <= smaller){
+            smaller = array[i];
+        }
+    }
+    printf("%d %d", bigger, smaller);
+}
+void exercise_8(){
+    int array[11];
+    int neg = 0, sum =0;
+    for(int i = 0; i < 10; i++){
+        scanf("%d", &array[i]);
+        if(array[i] < 0){
+            neg++;
+        }
+        if(array[i] > 0){
+            sum += array[i];
+        }
+    }
+    printf("%d %d", neg, sum);
+}
+void exercise_9(){
+    int A[11], B[11], C[11];
+
+    for(int i = 0; i < 10; i++){
+        scanf("%d", &A[i]);
+    }
+    for(int j = 0; j < 10; j++){
+        scanf("%d", &B[j]);
+    }
+    for(int k = 0; k < 10; k++){
+        C[k] = A[k] - B[k];
+        printf("%d,", C[k]);
+    }
+}
+void exercise_10(){
+    int array[101];
+    int i = 0;
+    while (i < 115){
+        if(i % 7 != 0){
+        array[i] = i;
+        printf("%d ", array[i]);
+        }
+        i++;
+    }
+}
+void exercise_11(){
+    int array[21];
+    int arraysqrd[21];
+    int lenght = 0;
+    scanf("%d", &lenght);
+    for(int i = 0, j = 0; i < lenght, j < lenght; i++, j++){
+        scanf("%d", &array[i]);
+        arraysqrd[j] = pow(array[i], 2);
+    }
+    for(int k = 0; k < lenght; k++){
+        printf("%d ", array[k]);
+    }
+    printf("\n");
+    for(int l = 0; l < lenght; l++){
+        printf("%d ", arraysqrd[l]);
+    }
+}
+void exercise_12(){
+    int array[11];
+    for(int i = 0; i < 10; i++){
+        scanf("%d", &array[i]);
+    }
+    for(int j = 0; j < 10; j++){
+        for(int k = j+1; k < 10; k++){
+            if(array[k] == array[j]){
+                printf("%d repeats", array[j]);
+            }
+        }
+    }
+}
+void exercise_13(){
+    int array[11];
+    scanf("%d", &array[0]);
+    for(int i = 1; i < 10; i++){
+        scanf("%d", &array[i]);
+        for(int j = i - 1; j >= 0; j--){
+            if(array[j] == array[i]){
+                printf("type a different number ");
+                scanf("%d ", &array[i]);
+            }
+        }
+    }
+    for(int i = 0; i < 10; i++){
+        printf("%d ", array[i]);
+    }
+}
+void exercise_14(){
+        int array[11];
+    float sum = 0, avg = 0;
+    float sum1 = 0, sdevt = 0;
+    for(int i = 0; i < 10; i++){
+        scanf("%d", &array[i]);
+        sum += array[i];
+    }
+    avg = sum / 10.0;
+    for(int j = 0; j < 10; j++){
+        sum1 += array[j] - avg;
+    }
+    sdevt = sqrt(sum1/10);
+    printf("%f", sdevt);
+
+}
+void exercise_15(){
+    float array[11];
+    float k = 0;
+    scanf("%f", &array[0]);
+    for(int i = 1; i < 10; i++){
+        scanf("%f", &array[i]);
+    }
+    for(int i = 10; i > 0; i--){
+        for(int j = 1; j <= i; j++){
+            if(array[j-1] > array[j]){
+                k = array[j];
+                array[j] = array[j-1];
+                array[j-1] = k;
+            }
+        }
+    }
+    for(int x = 0; x < 10; x++){
+        printf("%f ", array[x]);
+    }
+
+}
