@@ -1,0 +1,303 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+
+void exercise_1(){
+int sum_cubes(int n){
+    if(n == 1){
+        return 1;
+    }
+    else{
+        return (n*n*n + sum_cubes(n-1));
+    }
+}
+int main(){
+    int n, ans;
+    printf("type a value for n: ");
+    scanf("%d", &n);
+    ans = sum_cubes(n);
+    printf("the sum is: %d", ans);
+}
+}
+void exercise_2(){
+    int sum(int n){
+    if(n == 1){
+        return 1;
+    }
+    else{
+        return (n + sum(n-1));
+    }
+}
+int main(){
+    int n, ans;
+    printf("type a value for n: ");
+    scanf("%d", &n);
+    ans = sum(n);
+    printf("the sum is: %d", ans);
+}
+}
+void exercise_3(){
+    int num(int n, int x){
+    if(x == n){
+        return n;
+    }
+    else{
+        printf("%d ", x);
+        return num(n, x+1);
+    }
+}
+int main(){
+    int n, ans, x = 0;
+    printf("type a value for n: ");
+    scanf("%d", &n);
+    ans = num(n, x);
+    printf("%d", ans);
+}
+}
+void exercise_4(){
+    int num(int n, int x){
+    if(x == 0){
+        return 0;
+    }
+    else{
+        printf("%d ", x);
+        return num(n, x-1);
+    }
+}
+int main(){
+    int n, ans, x;
+    printf("type a value for n: ");
+    scanf("%d", &n);
+    x = n;
+    ans = num(n, x);
+    printf("%d", ans);
+}
+}
+void exercise_5(){
+    
+int sum(int array[], int n, int i){
+    if(i == n){
+        return 0;
+    }
+    else{
+        return array[i] + sum(array, n, i+1);
+    }
+}
+int main(){
+    int n, j = 0, ans;
+    printf("type a the quantity of numbers you want in the array: ");
+    scanf("%d", &n);
+    int array[n];
+    for(int i = 0; i < n; i++){
+        printf("type the %d number: ", i+1);
+        scanf("%d", &array[i]);
+    }
+    ans = sum(array, n, j);
+    printf("%d", ans);
+}
+}
+void exercise_6(){
+    int sum(int array[], int n, int i){
+    if(i == n){
+        return 0;
+    }
+    else{
+        return array[i] + sum(array, n, i+1);
+    }
+}
+int main(){
+    int n, j = 0, ans;
+    printf("type a the quantity of numbers you want in the array: ");
+    scanf("%d", &n);
+    int array[n];
+    for(int i = 0; i < n; i++){
+        printf("type the %d number: ", i+1);
+        scanf("%d", &array[i]);
+    }
+    ans = sum(array, n, j);
+    printf("%f", ans/n);
+}
+}
+void exercise_7(){
+    int powd(int x, int y){
+    if(y == 0){
+        return 1;
+    }
+    else{
+        return x*powd(x, y-1);
+    }
+}
+int main(){
+    int x, y, ans;
+    printf("type a value for x and for y: ");
+    scanf("%d %d", &x, &y);
+    ans = powd(x, y);
+    printf("%d", ans);
+}
+}
+void exercise_8(){
+    int sum(int x, int y){
+    if(y == 0){
+        return 0;
+    }
+    else{
+        return x+sum(x, y-1);
+    }
+}
+int main(){
+    int x, y, ans;
+    printf("type a value for x and for y: ");
+    scanf("%d %d", &x, &y);
+    ans = sum(x, y);
+    printf("%d", ans);
+}
+}
+void exercise_9(){
+    int fact(int n){
+    if(n == 0){
+        return 1;
+    }
+    else{
+        return n*fact(n-1);
+    }
+}
+int main(){
+    int n, ans;
+    printf("type a value for n: ");
+    scanf("%d", &n);
+    ans = fact(n);
+    printf("%d", ans);
+}
+}
+void exercise_10(){
+    int fibo(int n){
+    if(n == 0 || n == 1){
+        if(n == 0){
+            return 0;
+        }
+        else{
+            return 1;
+        }
+    }
+    else{
+        return fibo(n-1)+ fibo(n-2);
+    }
+}
+int main(){
+    int n, ans;
+    printf("type a value for n: ");
+    scanf("%d", &n);
+    ans = fibo(n-1);
+    printf("%d", ans);
+}
+}
+void exercise_11(){
+
+int bckwds(int n){
+    int naux = n, pos = 0;
+    while(naux > 10){
+        naux /= 10;
+        pos++;
+    }
+    if(n > 0){
+        return(n % 10)*pow(10, pos) + bckwds(n / 10);
+    }
+    else{
+        return 0;
+    }
+}
+int main(){
+    int n, ans;
+    printf("digite um inteiro: ");
+    scanf("%d", &n);
+    if(n >= 0){
+        ans = bckwds(n);
+        printf("%d", ans);
+    }
+    else{
+        ans = -bckwds(-n);
+        printf("%d", ans);
+
+    }
+}
+}
+void exercise_12(){
+    void dec_bin(long int n){
+    int pos = 0;
+    int nbin = 0;
+    if(n == 0 || n == 1){
+        printf("%ld", n);
+        return;
+    }
+    dec_bin(n / 2);
+    printf("%ld", n % 2);
+}
+int main(){
+    long int dec;
+    printf("type a decimal integer: ");
+    scanf("%ld", &dec);
+    dec_bin(dec);
+}
+}
+void exercise_13(){
+    float sumfr(float n){
+    if(n >= 1){
+        return sumfr(n-1) + ((1 + n*n)/n);
+    }
+    else{
+        return 0;
+    }
+}
+int main(){
+    float n;
+    float ans;
+    printf("type a value for n: ");
+    scanf("%f", &n);
+    ans = sumfr(n);
+    printf("the sum is: %.2f", ans);
+}
+}
+void exercise_14(){
+    
+float smaller_element(float array[], int n){
+    if(n == 1){
+        return array[0];
+    }
+    float smaller = smaller_element(array + 1, n -1);
+    if(smaller < array[0]){
+        return smaller;
+    }
+    else{
+        return array[0];
+    }
+}
+int main(){
+    int n;
+    printf("type the number of elements of the array: ");
+    scanf("%d", &n);
+    float array[n], ans;
+    for(int i = 0; i < n; i++){
+        printf("type the %d value: ", i+1);
+        scanf("%f", &array[i]);
+    }
+    ans = smaller_element(array, n);
+    printf("%.2f", ans);
+}
+}
+void exercise_15(){
+    float harm_sum(float n){
+    if(n == 1){
+        return 1;
+    }
+    return (harm_sum(n-1) + 1/(n));
+}
+int main(){
+    float n;
+    float ans;
+    printf("type a value for n: ");
+    scanf("%f", &n);
+    ans = harm_sum(n);
+    printf("%.2f", ans);
+}
+}
