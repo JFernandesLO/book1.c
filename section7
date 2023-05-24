@@ -1,0 +1,480 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+
+void exercise_1(){
+    struct cad{
+    char nome[50];
+    int idade;
+    char rua[50];
+    int numero;
+};
+    struct cad c;
+    printf("--CADASTRO---\n");
+    printf("---NOME---\n");
+    gets(c.nome);
+    printf("---IDADE---\n");
+    scanf("%d", &c.idade);
+   
+    printf("---RUA---\n");
+    gets(c.rua);
+    printf("---NUMERO---\n");
+    scanf("%d", &c.numero);
+    printf("---CADASTRO REALIZADO---\n");
+    printf("---NOME: %s---\n", c.nome);
+    printf("---IDADE: %d---\n", c.idade);
+    printf("---RUA: %s---\n", c.rua);
+    printf("---NUMERO: %d---\n", c.numero);
+}
+void exercise_2(){
+    struct ponto{
+    int x;
+    int y;
+};
+int main(){
+    struct ponto p1;
+    scanf("%d %d", &p1.x, &p1.y);
+    float distance;
+    distance = sqrt((p1.x*p1.x) + (p1.y*p1.y));
+    printf("%.2f", distance);
+}
+}
+void exercise_3(){
+    struct ponto{
+    int x;
+    int y;
+};
+int main(){
+    struct ponto p1, p2;
+    scanf("%d %d", &p1.x, &p1.y);
+    scanf("%d %d", &p2.x, &p2.y);
+    float distance;
+    distance = sqrt((pow((p1.x-p2.x), 2)) + (pow((p1.y-p2.y),2)));
+    printf("%.2f", distance);
+}
+}
+void exercise_4(){
+    struct ponto{
+    int x;
+    int y;
+};
+struct retangulo{
+    struct ponto Pse;
+    struct ponto Pid;
+};
+int main(){
+    struct retangulo ret;
+    scanf("%d %d", &ret.Pse.x, &ret.Pse.y);
+    scanf("%d %d", &ret.Pid.x, &ret.Pid.y);
+    float b = ret.Pid.x - ret.Pse.x;
+    float h = ret.Pid.y - ret.Pse.y;
+    float area = b*h;
+    float perimeter = 2*(b+h);
+    float diagonal = sqrt((pow((ret.Pse.x-ret.Pid.x), 2)) + (pow((ret.Pse.y-ret.Pid.y),2)));
+    printf("%.2f %.2f %.2f", area, diagonal, perimeter);
+}
+}
+void exercise_5(){
+struct ponto{
+    int x;
+    int y;
+};
+struct retangulo{
+    struct ponto Pse;
+    struct ponto Pid;
+};
+int main(){
+    struct retangulo ret;
+    scanf("%d %d", &ret.Pse.x, &ret.Pse.y);
+    scanf("%d %d", &ret.Pid.x, &ret.Pid.y);
+    int px, py;
+    scanf("%d %d", &px, &py);
+    float b = ret.Pid.x - ret.Pse.x;
+    float h = ret.Pid.y - ret.Pse.y;
+    float distance1, distance2, distance;
+    distance1 = sqrt((pow((ret.Pse.x-px), 2)) + (pow((ret.Pse.y-py),2)));
+    distance2 = sqrt((pow((px-ret.Pid.x), 2)) + (pow((py-ret.Pid.y),2)));
+    distance = distance1 + distance2;
+    if(distance > (b+h)){
+        printf("ponto esta fora do retangulo");
+    }
+    if(distance < (b+h)){
+        printf("ponto esta dentro do retangulo");
+    }
+}
+}
+void exercise_6(){
+    struct alunos{
+    char buffer[5];
+    int matricula;
+    char nome[50];
+    float nota1, nota2, nota3;
+};
+int main(){
+    struct alunos al[5];
+    float media = 0, maiorMedia = 0;
+    int j = 0;
+    for(int i = 0; i < 5; i++){
+        printf("---CADASTRO %d ALUNO---\n", i+1);
+        printf("---NOME---\n");
+        fgets(al[i].nome, 50, stdin);
+        printf("---MATRICULA---\n");
+        fgets(al[i].buffer, 5, stdin);
+        sscanf(al[i].buffer, "%d", &al[i].matricula);
+        printf("---NOTA 1---\n");
+        fgets(al[i].buffer, 5, stdin);
+        sscanf(al[i].buffer, "%f", &al[i].nota1);
+        printf("---NOTA 2---\n");
+        fgets(al[i].buffer, 5, stdin);
+        sscanf(al[i].buffer, "%f", &al[i].nota2);
+        printf("---NOTA 3---\n");
+        fgets(al[i].buffer, 5, stdin);
+        sscanf(al[i].buffer, "%f", &al[i].nota3);
+        fflush(stdout);
+        media = (al[i].nota1 + al[i].nota2 + al[i].nota3)/3;
+        if(media > maiorMedia){
+            maiorMedia=media;
+            j = i;
+        } 
+    }
+    printf("maior media e %.2f do aluno ", maiorMedia);
+    fputs(al[j].nome, stdout);
+}
+}
+void exercise_7(){
+    struct time{
+    int hour, min, sec;
+};
+int main(){
+    struct time t[5];
+    int bigger = 0;
+    int timesec = 0, j = 0;
+    printf("type the time in the format hours:minutes:seconds\n");
+    for(int i = 0; i < 5; i++){
+        scanf("%d:%d:%d", &t[i].hour, &t[i].min, &t[i].sec);
+        timesec = t[i].sec + (60*(t[i].min)) + (3600*(t[i].hour));
+        if(timesec > bigger){
+            bigger = timesec;
+            j = i;
+        }
+    }
+    printf("the bigger time: %d:%d:%d", t[j].hour, t[j].min, t[j].sec);
+}
+}
+void exercise_8(){
+    struct pessoas{
+    char nome[50];
+    int dia, mes, ano;
+};
+int main(){
+    struct pessoas p[6];
+    struct pessoas v, n;
+    for(int i = 0; i < 6; i++){
+        printf("TYPE THE DATE FOR THE %d PERSON\n", i+1);
+        printf("---NAME---\n");
+        fflush(stdin);
+        gets(p[i].nome);
+        printf("---DATE OF BIRTH---\n");
+        scanf("%d/%d/%d", &p[i].dia, &p[i].mes, &p[i].ano);
+    }
+    v = p[0];
+    n = p[0];
+    for(int i = 0; i < 6; i++){
+        if((p[i].ano > n.ano) || ((p[i].ano == n.ano) && (p[i].mes > n.mes)) || ((p[i].ano == n.ano) && (p[i].mes == n.mes) && (p[i].dia > n.dia))){
+            n = p[i];
+        }
+    }
+    for(int i = 0; i < 6; i++){
+        if((p[i].ano < v.ano) || ((p[i].ano == v.ano) && (p[i].mes < v.mes)) || ((p[i].ano == v.ano) && (p[i].mes == v.mes) && (p[i].dia < v.dia))){
+            v = p[i];
+        }
+    }
+    printf("mais velha e ");
+    fputs(v.nome, stdout);
+    printf(" e mais nova e ");
+    fputs(n.nome, stdout);
+}
+void exercise_9(){
+    struct atletas{
+    char nome[50];
+    char esporte[20];
+    int idade;
+    float altura;
+
+};
+int main(){
+    struct atletas a[5];
+    struct atletas maisAlto, maisVelho;
+    for(int i = 0; i < 5; i++){
+        printf("DIGITE OS DADOS DO %d ATLETA\n", i+1);
+        printf("---NOME---\n");
+        fflush(stdin);
+        gets(a[i].nome);
+        printf("---ESPORTE---\n");
+        gets(a[i].esporte);
+        printf("---IDADE---\n");
+        scanf("%d", &a[i].idade);
+        printf("---ALTURA---\n");
+        scanf("%f", &a[i].altura);
+    }
+    maisAlto = a[0];
+    maisVelho = a[0];
+    for(int i = 0; i < 5; i++){
+        if(a[i].altura > maisAlto.altura){
+            maisAlto= a[i];
+        }
+        if(a[i].idade > maisVelho.idade){
+            maisVelho = a[i];
+        }
+    }
+    printf("o atleta mais alto e ");
+    fputs(maisAlto.nome, stdout);
+    printf(" e o atleta mais velho e ");
+    fputs(maisVelho.nome, stdout);
+    
+}
+void exercise_10(){
+    struct atletas{
+    char nome[50];
+    char esporte[20];
+    int idade;
+    float altura;
+
+};
+int main(){
+    struct atletas a[5];
+    struct atletas maisVelho, maisNovo, segMaisVelho, segMaisNovo, terMaisNovo;
+    for(int i = 0; i < 5; i++){
+        printf("DIGITE OS DADOS DO %d ATLETA\n", i+1);
+        printf("---NOME---\n");
+        fflush(stdin);
+        gets(a[i].nome);
+        printf("---ESPORTE---\n");
+        gets(a[i].esporte);
+        printf("---IDADE---\n");
+        scanf("%d", &a[i].idade);
+        printf("---ALTURA---\n");
+        scanf("%f", &a[i].altura);
+    }
+    maisVelho = a[0];
+    maisNovo = a[0];
+    segMaisVelho.idade = 0;
+    segMaisNovo = a[0];
+    terMaisNovo = a[0];
+    for(int i = 0; i < 5; i++){
+        if(a[i].idade > maisVelho.idade){
+            maisVelho = a[i];
+        }
+    }
+    for(int i = 0; i < 5; i++){
+        if(a[i].idade < maisNovo.idade){
+            maisNovo = a[i];
+        }
+    }
+    for(int i = 0; i < 5; i++){
+        if(a[i].idade != maisVelho.idade){
+            if(a[i].idade > segMaisVelho.idade){
+                segMaisVelho = a[i];
+            }
+        }
+    }
+    for(int i = 0; i < 5; i++){
+        if(a[i].idade != maisNovo.idade){
+            if(a[i].idade < segMaisNovo.idade){
+                segMaisNovo = a[i];
+            }
+        }
+    }
+    for(int i = 0; i < 5; i++){
+        if((a[i].idade != maisNovo.idade) && (a[i].idade != segMaisNovo.idade)){
+            if(a[i].idade < terMaisNovo.idade){
+                terMaisNovo = a[i];
+            }
+
+        }
+    } 
+    printf("a ordem do mais velho para o mais novo e ");
+    fputs(maisVelho.nome, stdout);
+    printf("\n");
+    fputs(segMaisVelho.nome, stdout);
+    printf("\n");
+    fputs(terMaisNovo.nome, stdout);
+    printf("\n");
+    fputs(segMaisNovo.nome, stdout);
+    printf("\n");
+    fputs(maisNovo.nome, stdout);
+}
+void exercise_11(){
+    struct Data {
+    int dia;
+    int mes;
+    int ano;
+};
+
+int diasDesdeEpoch(struct Data data) {
+    int diasPorMes[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    int dias = 0;
+    int i;
+    for (i = 1970; i < data.ano; i++) {
+        dias += 365;
+        if ((i % 4 == 0 && i % 100 != 0) || i % 400 == 0) {
+            dias++; 
+        }
+    }
+    for (i = 1; i < data.mes; i++) {
+        dias += diasPorMes[i];
+        if (i == 2 && ((data.ano % 4 == 0 && data.ano % 100 != 0) || data.ano % 400 == 0)) {
+            dias++; 
+        }
+    }
+    dias += data.dia;
+
+    return dias;
+}
+
+int main() {
+    struct Data data1, data2;
+    int dias;
+
+    printf("Digite a primeira data (dd/mm/aaaa): ");
+    scanf("%d/%d/%d", &data1.dia, &data1.mes, &data1.ano);
+    printf("Digite a segunda data (dd/mm/aaaa): ");
+    scanf("%d/%d/%d", &data2.dia, &data2.mes, &data2.ano);
+
+    dias = diasDesdeEpoch(data2) - diasDesdeEpoch(data1);
+
+    printf("\nNumero de dias entre as datas: %d\n", dias);
+
+    return 0;
+}
+}
+void exercise_12(){
+    enum semana {domingo = 1, segunda, terca, quarta, quinta, sexta, sabado};
+int main(){
+    int num;
+    printf("digite um numero de 1 a 7: ");
+    scanf("%d", &num);
+    switch(num){
+        case 1:
+            printf("domingo");
+            break;
+        case 2:
+            printf("segunda");
+            break;
+        case 3:
+            printf("terca");
+            break;
+        case 4:
+            printf("quarta");
+            break;
+        case 5:
+            printf("quinta");
+            break;
+        case 6:
+            printf("sexta");
+            break;
+        case 7:
+            printf("sabado");
+            break;
+        default:
+            printf("valor invalido");
+            break;
+    }
+
+}
+void exercise_13(){
+    enum mes{jan, fev, mar, abr, mai, jun, jul, ago, set, out, nov, dez};
+int main(){
+    int num;
+    printf("digite um numero de 1 a 12: ");
+    scanf("%d", &num);
+    switch(num){
+        case 1:
+            printf("janeiro - 31 dias");
+            break;
+        case 2:
+            printf("fevereiro - 28 dias");
+            break;
+        case 3:
+            printf("marco - 31 dias");
+            break;
+        case 4:
+            printf("abril - 30 dias");
+            break;
+        case 5:
+            printf("maio - 31 dias");
+            break;
+        case 6:
+            printf("junho - 30 dias");
+            break;
+        case 7:
+            printf("julho - 31 dias");
+            break;
+        case 8:
+            printf("agosto - 31 dias");
+            break;
+        case 9:
+            printf("setembro - 30 dias");
+            break;
+        case 10:
+            printf("outubro - 31 dias");
+            break;
+        case 11:
+            printf("novembro - 30 dias");
+            break;
+        case 12:
+            printf("dezembro - 31 dias");
+            break;
+        default:
+            printf("valor invalido");
+            break;
+    }
+}
+}
+void exercise_14(){
+    enum{ovo, leite, pao, shampoo, banana, queijo, tomate};
+int main(){
+   int num;
+   printf("digite um numero de 1 a 7: ");
+   scanf("%d", &num);
+    switch(num){
+        case 1:
+            printf("caixa de ovo - 25 reais");
+            break;
+        case 2:
+            printf("caixa de leite - 5 reais");
+            break;
+        case 3:
+            printf("kilo do pao - 12 reais");
+            break;
+        case 4:
+            printf("shampoo - 24 reais");
+            break;
+        case 5:
+            printf("cacho de banana - 15 reais");
+            break;
+        case 6:
+            printf("queijo branco - 20 reais");
+            break;
+        case 7:
+            printf("kilo do tomate - 3 reais");
+            break;
+        default:
+            printf("valor invalido");
+            break;
+    }
+}
+}
+void exercise_15(){
+    union meuTipo{
+    int i;
+    float f;
+};
+int main(){
+    union meuTipo ex;
+    ex.i = 42.0;
+    ex.f = (float) ex.i;
+    printf("o valor em float e %f", ex.f);
+}
+}
