@@ -1,0 +1,412 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+
+void exercise_1(){
+    float bigger(float x, float y){
+    float z;
+    if(x > y){
+        z = x;
+    }
+    if(x < y){
+        z = y;
+    }
+    return z;
+}
+int main(){
+    float num1, num2, ans;
+    printf("type the numbers ");
+    scanf("%f %f", &num1, &num2);
+    ans = bigger(num1, num2);
+    printf("bigger is %f", ans);
+
+}
+}
+void exercise_2(){
+    void month(int month){
+    char *nameMonth[] = {"", "january", "feburary", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"};
+    int daysMonth[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    printf("%s has %d days", nameMonth[month], daysMonth[month]);
+}
+int main(){
+    int num;
+    printf("type a number from 1 to 12: ");
+    scanf("%d", &num);
+    month(num);
+}
+}
+void exercise_3(){
+    float celsius(float *farenheit){
+    float celsius;
+    celsius = ((5*((*farenheit) - 32))/9);
+    return celsius;
+}
+int main(){
+    float f, ans;
+    printf("type a temperature in farenheit: ");
+    scanf("%f", &f);
+    ans = celsius(&f);
+    printf("the temperature in celsius is: %.2f", ans);
+}
+}
+void exercise_4(){
+    float volume(float *r, float *h){
+    const float PI = 3.1414592;
+    float volume;
+    volume = (PI * (*r)*(*r) * (*h));
+    return volume;
+}
+int main(){
+    float r, h, ans;
+    printf("type a value for the radius and for the height: ");
+    scanf("%f %f", &r, &h);
+    ans = volume(&r, &h);
+    printf("the volume is: %f", ans);
+}
+}
+void exercise_5(){
+    float volume(float *r){
+    const float PI = 3.1414592;
+    float volume;
+    volume = (4*(PI * (*r)*(*r)*(*r)))/3;
+    return volume;
+}
+int main(){
+    float r, ans;
+    printf("type a value for the radius: ");
+    scanf("%f", &r);
+    ans = volume(&r);
+    printf("the volume is: %f", ans);
+}
+}
+void exercise_6(){
+    float BMI(float *weight, float *height){
+    float BMI;
+    BMI = (*weight)/((*height)*(*height));
+    return BMI;
+}
+int main(){
+    float w, h, ans;
+    printf("type your weight and height: ");
+    scanf("%f %f", &w, &h);
+    ans = BMI(&w, &h);
+    printf("your BMI is: %.2f", ans);
+}
+}
+void exercise_7(){
+    int timeSec(int *hour, int *min, int *sec){
+    int timeSec;
+    timeSec = (*hour)*3600 + (*min)* 60 + (*sec);
+    return timeSec;
+}
+int main(){
+    int h, m, s, ans;
+    printf("type a time: ");
+    scanf("%d:%d:%d", &h, &m, &s);
+    ans = timeSec(&h, &m, &s);
+    printf("the time in seconds is %d", ans);
+}
+}
+void exercise_8(){
+    void square(int *num){
+    int x;
+    x = sqrt(*num);
+    if(*num == (x*x)){
+        printf("%d is a perfect square", *num);
+    }
+    else{
+        printf("%d is not a perfect square", *num);
+    }
+}
+int main(){
+    int num;
+    printf("type a natural number: ");
+    scanf("%d", &num);
+    square(&num);
+}
+}
+void exercise_9{
+    float avg(float *g1, float *g2, float *g3, char c){
+    float avg;
+    if(c == 'A'){
+        avg = (((*g1)+(*g2)+(*g3))/3);
+    }
+    if(c == 'W'){
+        avg = (((5*(*g1))+(3*(*g2))+(2*(*g3)))/10);
+    }
+    return avg;
+}
+int main(){
+    float g1, g2, g3, ans;
+    char c;
+    printf("type the three grades and the letter A por arithmetic or W for weight average: ");
+    scanf("%f %f %f %c", &g1, &g2, &g3, &c);
+    ans = avg(&g1, &g2, &g3, c);
+    printf("the average is: %.2f", ans);
+}
+}
+void exercise_10(){
+    float operation(float *num1, float *num2, char c){
+    float result;
+    switch (c){
+        case '+':
+            result = (*num1)+(*num2);
+            break;
+        case '-':
+            result = (*num1)-(*num2);
+            break;
+        case '*':
+            result = (*num1)*(*num2);
+            break;
+        case '/':
+            result = (*num1)/(*num2);
+            break;
+        default:
+            printf("invalid operation");
+            break;
+    }
+    return result;
+}
+int main(){
+    float num1, num2, ans;
+    char c;
+    printf("type two numbers and an operation: ");
+    scanf("%f %c %f", &num1, &c, &num2);
+    ans = operation(&num1, &num2, c);
+    printf("the result is %.2f", ans);
+}
+}
+void exercise_11(){
+    int powt(int *x, int *y){
+    int result = 1;
+    for(int i = 0; i < (*y); i++){
+        result *= (*x);
+    }
+    return result;
+}
+int main(){
+    int x, y, ans;
+    printf("type the values for x and y: ");
+    scanf("%d %d", &x, &y);
+    ans = powt(&x, &y);
+    printf("the power is %d", ans);
+}
+}
+void exercise_12(){
+    int itsprime(int n){
+    if(n < 2){
+        return 0;
+    }
+    for(int i = 2; i <= sqrt(n); i++){
+        if(n % i == 0){
+            return 0;
+        }
+    }
+    return 1;
+}
+int biggerprime(int n){
+    int bprime = 2;
+    while(n > 1){
+        if(n % bprime == 0){
+            n /= bprime;
+        }
+        else{
+            bprime++;
+            while(!itsprime(bprime)){
+                bprime++;
+            }
+        }
+    }
+    return bprime;
+}
+
+int main(){
+    int n, ans;
+    printf("type a natural number: ");
+    scanf("%d", &n);
+    ans = biggerprime(n);
+    printf("the bigger prime factor from this number is: %d", ans);
+}
+}
+void exercise_13(){
+    int sumNaturals(int n){
+    int sum = 0;
+    for(int i = 1; i <= n; i++){
+        sum += i;
+    }
+    return sum;
+}
+int main(){
+    int n, ans;
+    printf("type a natual number: ");
+    scanf("%d", &n);
+    ans = sumNaturals(n);
+    printf("the sum from 1 to %d is equal to: %d", n, ans);
+}
+}
+void exercise_14(){
+    int factorial(int n){
+    int fact = 1;
+    for(int i = 1; i <= n; i++){
+        fact *= i;
+    }
+    if(n = 0){
+        fact = 1;
+    }
+    return fact;
+}
+int main(){
+    int n, ans;
+    printf("type a natual number: ");
+    scanf("%d", &n);
+    ans = factorial(n);
+    printf("the factorial of %d is equal to: %d", n, ans);
+}
+}
+void exercise_15(){
+    void triangle(int n){
+    for(int i = 1; i <= n; i++){
+        printf("\n");
+        for(int j = 1; j <= i; j++){
+            printf("!");
+        }
+    }
+}
+int main(){
+    int n;
+    printf("type a natural number: ");
+    scanf("%d", &n);
+    triangle(n);
+}
+}
+void exercise_16(){
+    void triangle(int n){
+    for(int i = 1; i <= n; i++){
+        printf("\n");
+        for(int j = 1; j <= i; j++){
+            printf("*");
+        }
+    }
+    printf("\n");
+    for(int i = n - 1; i > 0; i--){
+        for(int j = i; j > 0; j--){
+            printf("*");
+        }
+        printf("\n");
+    }
+}
+int main(){
+    int n;
+    printf("type a natural number: ");
+    scanf("%d", &n);
+    triangle(n);
+}
+}
+void exercise_17(){
+    float sum(int n){
+    float num, den, sum = 0;
+    for(int i = 1; i <= n; i++){
+        num = ((i*i) + 1);
+        den = (i + 3);
+        sum += (num/den);
+    }
+    return sum;
+}
+int main(){
+    int n;
+    float ans;
+    printf("type a natural number: ");
+    scanf("%d", &n);
+    ans = sum(n);
+    printf("the sum is: %.2f", ans);
+}
+}
+void exercise_18(){
+    int factorial(int n){
+    int fact = 1;
+    for(int i = 1; i <= n; i++){
+        fact *= i;
+    }
+    if(n = 0){
+        fact = 1;
+    }
+    return fact;
+}
+float sinx(int xg){
+    const float PI = 3.1414692;
+    float sinx = 0, x;
+    x = (xg*PI)/180;
+    for(int i = 0; i <= 5; i++){
+        sinx += (pow(-1, i))*(pow(x, ((2*i)+1)))/(factorial(((2*i)+1)));
+    }
+    return sinx;
+
+}
+int main(){
+    int n;
+    float ans;
+    printf("type a natural number: ");
+    scanf("%d", &n);
+    ans = sinx(n);
+    printf("the sin is: %.4f", ans);
+}
+}
+void exercise_19(){
+    int factorial(int n){
+    int fact = 1;
+    for(int i = 1; i <= n; i++){
+        fact *= i;
+    }
+    if(n = 0){
+        fact = 1;
+    }
+    return fact;
+}
+float en(int n){
+    const float PI = 3.1414692;
+    float cosx = 0, x;
+    x = (xg*PI)/180;
+    for(int i = 0; i <= 5; i++){
+        cosx += (pow(-1, i))*(pow(x, (2*i)))/(factorial(2*i));
+    }
+    return cosx;
+
+}
+int main(){
+    int n;
+    float ans;
+    printf("type a natural number: ");
+    scanf("%d", &n);
+    ans = cosx(n);
+    printf("the cos is: %.4f", ans);
+}
+}
+void exercise_20(){
+    double factorial(int n){
+    double fact = 1;
+    for(int i = 1; i <= n; i++){
+        fact *= i;
+    }
+    if(n = 0){
+        fact = 1;
+    }
+    return fact;
+}
+float sum_e(int n){
+    double sum = 0;
+    for(int i = 0; i <= n; i++){
+        sum += (1/factorial(i));
+    }
+    return sum;
+
+}
+int main(){
+    int n;
+    double ans;
+    printf("type a natural number: ");
+    scanf("%d", &n);
+    ans = sum_e(n);
+    printf("e equals to approximately: %lf", ans);
+}
+}
