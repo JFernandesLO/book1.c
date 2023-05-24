@@ -1,0 +1,240 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+
+void exercise_1(){
+    char str[100];
+    gets(str);
+    fputs(str, stdout);
+}
+void exercise_2(){
+    char str[100];
+    fgets(str, 5, stdin);
+    fputs(str, stdout);
+}
+void exercise_3(){
+    char str[50];
+    int i = 0, j = 0;
+    fgets(str, 50, stdin);
+    while(str[i] != '\0'){
+        j++;
+        i++;
+    }
+    printf("%d", j-1);
+
+}
+void exercise_4(){
+    char str[50];
+    int j = 0;
+    fgets(str, 50, stdin);
+    j = strlen(str);
+    for(int i = j - 1; i >= 0; i--){
+    printf("%c", str[i]);
+    }
+}
+void exercise_5(){
+    char str[50];
+    char str2[50];
+    int j = 0;
+    setbuf(stdin, NULL);
+    fgets(str, 50, stdin);
+    j = strlen(str);
+    for(int i = j - 1; i >= 0; i--){
+        str2[j -i] = str[i];
+    }
+    strcpy(str, str2);
+    fputs(str, stdout);
+}
+void exercise_6(){
+    char str[50], x;
+    int j = 0;
+    fgets(str, 50, stdin);
+    scanf("%c", &x);
+    for(int i = 0; i < 50; i++){
+        if(str[i] == 'a' || str[i] == 'e' || str[i] == 'i' || str[i] == 'o' || str[i] == 'u'){
+            str[i] = x;
+            if(str[i] == 'a' || str[i] == 'e' || str[i] == 'i' || str[i] == 'o' || str[i] == 'u'){
+                j++;
+            }
+        }
+    }
+    fputs(str, stdout);
+    printf("%d", j);
+
+}
+void exercise_7(){
+    char str[50], str2[50];
+    gets(str);
+    int count = 0;
+    int j = strlen(str);
+    for(int i = j - 1; i >= 0; i--){
+        str2[j - i - 1] = str[i];
+    }
+    for(int i = 0; i < j; i++){
+        if(str[i] == str2[i]){
+            count++;
+        }
+    }
+    if(count == j){
+        printf("e palindromo");
+    }
+    else{
+        printf("nao e palindromo");
+    }
+}
+void exercise_8(){
+    char str[50], str2[50];
+    printf("type the first string: ");
+    gets(str);
+    printf("type the second string: ");
+    gets(str2);
+    int a = strlen(str);
+    int b = strlen(str2);
+    int count = 1;
+    for(int i = 0; i < a; i++){
+        if(str2[0] == str[i]){
+            for(int j = i + 1, k = 1; j < a, k < b; j++, k++){
+                if(str2[k] == str[j]){
+                    count++;
+                }
+            }
+        }
+    }
+    if(count == b){
+        printf("a segunda esta contida na primeira");
+    }
+    else{
+        printf("a segunda nao esta contida na primeira");
+    }
+} 
+void exercise_9(){
+        char str[50], str2[50];
+    printf("type the first string: ");
+    gets(str);
+    printf("type the second string: ");
+    gets(str2);
+    int a = strlen(str);
+    int b = strlen(str2);
+    int count = 1;
+    int i = 0, j = 0;
+    while(i < a){
+        if(str2[j] == str[i]){
+            count++;
+            j++;
+        }
+        i++;
+        if(j == (b-1)){
+        j = 0;
+        }
+    }
+    printf("%d", count);
+    if(count % b == 0){
+        int i = count / b;
+        printf("\na segunda esta contida na primeira %d vezes", i);
+    }
+    else{
+        printf("\na segunda nao esta contida na primeira");
+    }
+}
+void exercise_10(){
+    char str[200];
+    for(int i = 0; i < 200; i++){
+        if(str[i] != '\0'){
+            scanf("%c", &str[i]);
+            if(str[i] >= 97 && str[i] <= 122){
+                str[i] -= 32;
+            }
+            printf("%c", str[i]);
+        }
+    }
+}
+void exercise_11(){
+    char str[200];
+    setbuf(stdin, NULL);
+    for(int i = 0; i < 200; i++){
+        if(str[i] != '\0'){
+            scanf("%c", &str[i]);
+            if(str[i] >= 65 && str[i] <= 90){
+                str[i] += 32;
+            }
+            printf("%c", str[i]);
+        }
+    }
+}
+void exercise_12(){
+        char str[20];
+    setbuf(stdin, NULL);
+    float value = 0;
+    printf("write the name and the value of the product in the format: name_of_product | value\n");
+    for(int i = 0; i < 20; i++){
+        scanf("%c", &str[i]);
+        if(str[i] == ' '){
+            break;
+        }
+        printf("%c", str[i]);
+    }
+    int a = strlen(str);
+    scanf("%f", &value);
+    float newvalue = (0.9 * value);
+    float discount = (0.1 * value);
+    printf(" %.2f %.2f %.2f", value, discount, newvalue);
+}
+void exercise_13(){
+        char str[100];
+    int i = 0, j = 0, k = 0;
+    gets(str);
+    scanf("%d %d", &i, &j);
+    int l = strlen(str);
+    if(j >= 100){
+        j = l - 1;
+    }
+    if(i > j){
+        i = j;
+        k = i;
+        j = k;
+    }
+    for(int m = i; m <= j; m++){
+        printf("%c", str[m]);
+    }
+}
+void exercise_14(){
+        char str[50];
+    gets(str);
+    int l = strlen(str);
+    for(int i = 0; i < l; i++){
+        if(str[i] >= 97 && str[i] <= 119){
+            str[i] += 3;
+        }
+        if(str[i] >= 120 && str[i] <= 122){
+            str[i] -= 23;
+        }
+        if(str[i] >= 65 && str[i] <= 87){
+            str[i] += 3;
+        }
+        if(str[i] >= 88 && str[i] <= 90){
+            str[i] -= 23;
+        }
+    }
+    fputs(str, stdout);
+}
+void exercise_15(){
+        char str[50], str2[50];
+    gets(str);
+    gets(str2);
+    int i = 0;
+    while(str[i] == str2[i]){
+        i++;
+    }
+    if(str[i] > str2[i]){
+            fputs(str2, stdout);
+            printf("\n");
+            fputs(str, stdout);
+    }
+    else{
+            fputs(str, stdout);
+            printf("\n");
+            fputs(str2, stdout);
+    }
+
+}
