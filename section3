@@ -1,0 +1,292 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+void exercise_1(){
+    int num1, num2;
+    scanf("%d %d", &num1, &num2);
+    if(num1 > num2){
+        printf("%d is greater", num1);
+    }
+    else {
+        printf("%d is greater", num2);
+    }
+}
+void exercise_2(){
+    int num1, num2;
+    scanf("%d %d", &num1, &num2);
+    if(num1 > num2){
+        printf("%d is greater", num1);
+    }
+    else if (num1 < num2){
+        printf("%d is greater", num2);
+    }
+    else {
+        printf("same number");
+    }
+}
+void exercise_3(){
+    int num1;
+    scanf("%d", &num1);
+    if((num1 % 2) == 0){
+        printf("even");
+    }
+    else{
+        printf("odd");
+    }
+}
+void exercise_4(){
+    float salary, provisionLoan;
+    scanf("%f %f", &salary, &provisionLoan);
+    if(provisionLoan > (0.2 * salary)){
+        printf("loan not granted");
+    }
+    else {
+        printf("loan granted");
+    }
+}
+void exercise_5(){
+    float num1, num2, num3;
+    scanf("%f", &num1);
+    if(num1 >= 0){
+        num2 = num1 * num1;
+        num3 = sqrt(num1);
+        printf("%f %f", num2, num3);
+    }
+}
+void exercise_6(){
+    float height, weight;
+    char gender;
+    gender = getchar();
+    scanf("%f", &height);
+    if(gender == 'F'){
+        weight = (62.1 * height) - 44.7;
+        printf("%f", weight);
+    }
+    else if (gender == 'M'){
+        weight = (72.7 * height) - 58;
+        printf("%f", weight);
+    }
+}
+void exercise_7(){
+    float value;
+    char state;
+    state = getchar();
+    scanf("%f", &value);
+    switch(state){
+        case '1':{
+            float finalPrice = 1.07 * value;
+            printf("%f", finalPrice);
+        }
+        break;
+        case '2':{
+            float finalPrice = 1.12 * value;
+            printf("%f", finalPrice);
+        }
+        break;
+        case '3':{
+            float finalPrice = 1.15 * value;
+            printf("%f", finalPrice);
+        }
+        break;
+        case '4':{
+            float finalPrice = 1.08 * value;
+            printf("%f", finalPrice);
+        }
+        break;
+        default: printf("error 404");
+    }
+}
+void exercise_8(){
+    int age;
+    scanf("%d", &age);
+    if(age >= 5 && age <= 7){
+        printf("Infantil A");
+    }
+    if(age >= 8 && age <= 10){
+        printf("Infantil B");
+    }
+    if(age >= 11 && age <= 13){
+        printf("Juvenil A");
+    }
+    if(age >= 14 && age <= 17){
+        printf("Juvenil B");
+    }
+    if(age >= 18){
+        printf("Senior");
+    }
+}
+void exercise_9(){
+    float height, weight;
+    scanf("%f %f", &height, &weight);
+    if (height < 1.2){
+        if(weight < 60){
+            printf("A");
+        }
+        if(weight >= 60 && weight <= 90){
+            printf("D");
+        }
+        if(weight > 90){
+            printf("G");
+        }
+    }
+    if (height >= 1.2 && height <= 1.7){
+        if(weight < 60){
+            printf("B");
+        }
+        if(weight >= 60 && weight <= 90){
+            printf("E");
+        }
+        if(weight > 90){
+            printf("H");
+        }
+    }
+    if (height > 1.7){
+        if(weight < 60){
+            printf("C");
+        }
+        if(weight >= 60 && weight <= 90){
+            printf("F");
+        }
+        if(weight > 90){
+            printf("I");
+        }
+    }
+}
+void exercise_10(){
+    float x, y, z;
+    char num;
+    float gavg, wavg, havg, aavg;
+    scanf("%f %f %f %f %c", &x, &y, &z, &num);
+    if(num == '1'){
+        gavg = pow((x*y*z), (1.0/3.0));
+        printf("%f", gavg);
+    }
+    if(num =='2'){
+        wavg = (x + (2*y) + (3*z))/6;
+        printf("%f", wavg);
+    }
+    if(num == '3'){
+        havg = (3.0/((1/x)+(1/y)+(1/z)));
+        printf("%f", havg);
+    }
+    if(num == '4'){
+        aavg = (x+y+z)/3;
+        printf("%f", aavg);
+    }
+}
+void exercise_11(){
+    char month[3];
+    scanf("%s", &month);
+    if(month[0] == '1' && month[1] != '0' && month[1] != '1' && month[1] != '2'){
+        printf("January");
+    }
+    if(month[0] == '2'){
+        printf("Feburary");
+    }
+    if(month[0] == '3'){
+        printf("March");
+    }
+    if(month[0] == '4'){
+        printf("April");
+    }
+    if(month[0] == '5'){
+        printf("May");
+    }
+    if(month[0] == '6'){
+        printf("June");
+    }
+    if(month[0] == '7'){
+        printf("July");
+    }
+    if(month[0] == '8'){
+        printf("August");
+    }
+    if(month[0] == '9'){
+        printf("September");
+    }
+    if(month[0] == '1' && month[1] == '0' && month[1] != '1' && month[1] != '2'){
+        printf("October");
+    }
+    if(month[0] == '1' && month[1] != '0' && month[1] == '1' && month[1] != '2'){
+        printf("November");
+    }
+    if(month[0] == '1' && month[1] != '0' && month[1] != '1' && month[1] == '2'){
+        printf("December");
+    }
+}
+void exercise_12(){
+    char week;
+    week = getchar();
+    switch(week){
+        case '1': printf("Sunday"); break;
+        case '2': printf("Monday"); break;
+        case '3': printf("Tuesday"); break;
+        case '4': printf("Wednesday"); break;
+        case '5': printf("Thursday"); break;
+        case '6': printf("Friday"); break;
+        case '7': printf("Saturday"); break;
+    }
+}
+void exercise_13(){
+    float x, y;
+    char ch;
+    ch = getchar();
+    scanf("%f %f", &x, &y);
+    switch (ch){
+        case '+':{
+            float a = x + y;
+            printf("%f", a);}
+            break;
+        case '-':{
+            float b = x - y;
+            printf("%f", b);}
+        break;
+        case '*':{
+            float c = x * y;
+            printf("%f", c);}
+        break;
+        case '/':{
+            float d = x / y;
+            printf("%f", d);}
+        break;
+    }
+}
+void exercise_14(){
+    int x;
+    scanf("%d", &x);
+    if(x % 3 == 0 && x % 5 != 0){
+        printf("the number is divisible for 3 but it is not for 5");
+    }
+    if(x % 3 != 0 && x % 5 == 0){
+        printf("the number is not divisible for 3 but it is for 5");
+    }
+    if(x % 3 != 0 && x % 5 != 0){
+        printf("the number is neither divisible for 3 nor for 5");
+    }
+    if(x % 3 == 0 && x % 5 == 0){
+        printf("the number is divisible both for 3 and for 5");
+    }
+}
+void exercise_15(){
+    float a, b, c, x1, x2, delta;
+    scanf("%f %f %f", &a, &b, &c);
+    if (a != 0){
+        delta = (b*b - (4*a*c));
+        if (delta < 0){
+            printf("There are no real roots");
+        }
+        if (delta == 0){
+            x1 = (-b / (2*a));
+            printf("unic root: %f", x1);
+        }
+        if(delta > 0){
+            x1 = (-b + sqrt(delta)) / (2*a);
+            x2 = (-b - sqrt(delta)) / (2*a);
+            printf("%f %f", x1, x2);
+        }
+    }
+    else{
+        printf("not a second degree equation");
+    }
+}
