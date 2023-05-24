@@ -1,0 +1,164 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+
+void exercise_1(){
+    int main(){
+    int x = 10, y = 20;
+    if(&x > &y){
+        printf("the adress of %d is bigger than %d", x, y);
+    }
+    else{
+        printf("the adress of %d is bigger than %d", x, y);
+    }
+}
+}
+void exercise_2(){
+    int main(){
+    int x, y;
+    printf("type two integers: ");
+    scanf("%d %d", &x, &y);
+    if(&x > &y){
+        printf("the adress of %d is bigger than %d", x, y);
+    }
+    else{
+        printf("the adress of %d is bigger than %d", x, y);
+    }
+}
+}
+void exercise_3(){
+int main(){
+    float array[12];
+    for (int i = 0; i < 10; i++){
+        printf("type the %d element: ", i+1);
+        scanf("%f", &array[i]);
+    }
+    for(int i = 0; i < 10; i++){
+        printf("%p\n", &array[i]);
+    }
+}
+}
+void exercise_4(){
+    int main(){
+    float mat[5][5];
+    for (int i = 0; i < 3; i++){
+        for(int j = 0; j < 3; j++){
+        printf("type the element from %d line %d column: ", i+1, j+1);
+        scanf("%f", &mat[i][j]);
+        }
+    }
+    for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 3; j++){
+        printf("%p ", &mat[i][j]);
+        }
+        printf("\n");
+    }
+}
+}
+void exercise_5(){
+    int main(){
+    int array[7];
+    int *p = array;
+    for(int i = 0; i < 5; i++){
+        printf("type the %d element: ", i+1);
+        scanf("%d", &*(p+i));
+    }
+    for(int i = 0; i < 5; i++){
+        printf("%d ", (*(p+i))*2);
+    }
+}
+}
+void exercise_6(){
+    int main(){
+    int array[7];
+    int *p = array;
+    for(int i = 0; i < 5; i++){
+        printf("type the %d element: ", i+1);
+        scanf("%d", &*(p+i));
+    }
+    for(int i = 0; i < 5; i++){
+        if(*(p+i) % 2 == 0) {
+            printf("%p ", &(*(p+i)));
+        }
+    }
+}
+}
+void exercise_7(){
+void str_inside(char str1[], char str2[]){
+    int l = 0, count = 0;
+    l = strlen(str2);
+    char *p1 = str1;
+    char *p2 = str2;
+    for(int i = 0; i < l; i++){
+        if(*(p1 + i) == *p2){
+            for(int j = 1; j < l; j++){
+                if(*(p1 + i + j) == *(p2 + j)){
+                    count++;
+                }
+            }
+        }
+    }
+    if(count == l - 1){
+        printf("the second string is in the first one");
+    }
+    else{
+        printf("the second string is not in the first one");
+    }
+}
+}
+int main(){
+    char str1[100], str2[100];
+    printf("type the first string: ");
+    gets(str1);
+    printf("type the second string; ");
+    gets(str2);
+    str_inside(str1, str2);
+}
+
+void exercise_8(){
+void char_array(char array[], int l, char num){
+    char *p = array;
+    for(int i = 0; i < l; i++){
+        *(p+i) = num;
+        printf("%c ", *(p+i));
+    }
+}
+int main(){
+    int l;
+    char num;
+    printf("type the lenght of the array: ");
+    scanf("%d", &l);
+    int array[l];
+    printf("type the character you want to fullfill the array with: ");
+    scanf("%c", &num);
+    char_array(array, l, num);
+}
+}
+void exercise_9{
+void char_pointers(char array[], int l){
+    char *p = array;
+    for(int i = 0; i < l; i++){
+        printf("%c", *(p+i));
+    }
+}
+int main(){
+    char array[100];
+    int l;
+    printf("type the array: ");
+    gets(array);
+    l = strlen(array);
+    char_pointers(array, l);
+}
+}
+void exercise_10(){
+    int main(){
+    int a, *b, **c, ***d;
+    printf("type a value of an integer: ");
+    scanf("%d", &a);
+    b = &a;
+    c = &b;
+    d = &c;
+    printf("the double, triple and quadruple of the number %d are: %d, %d and %d", a, *b * 2, **c * 3, ***d * 4);
+}
+}
