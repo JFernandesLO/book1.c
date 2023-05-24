@@ -1,0 +1,134 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+void exercise_1(){
+    int x;
+    scanf("%d", &x);
+    int y = x+1;
+    int z= x-1;
+    printf("%d %d", y, z);
+    return 0;
+}
+void exercise_2(){
+    float x;
+    scanf("%f", &x);
+    float y = x/5;
+    printf("%f", y);
+}
+void exercise_3(){
+    int x, y, z, sum;
+    scanf("%d %d %d", &x, &y, &z);
+    sum = x + y + z;
+    printf("%d", sum);
+}
+void exercise_4(){
+    float x, y, z, w, avg;
+    scanf("%f %f %f %f", &x, &y, &z, &w);
+    avg = (x + y + z + w)/4;
+    printf("%f", avg);
+}
+void exercise_5(){
+    int age, currentYear, birthYear;
+    scanf("%d %d", &age, &currentYear);
+    birthYear = currentYear - age;
+    printf("%d", birthYear);
+}
+void exercise_6(){
+    float vkm, vms;
+    scanf("%f", &vkm);
+    vms = vkm / 3.6;
+    printf("%f", vms);
+}
+void exercise_7(){
+    float real, valueDolar, dolar;
+    scanf("%f %f", &real, &valueDolar);
+    dolar = real / valueDolar;
+    printf("%f", dolar);
+}
+void exercise_8(){
+    float celsius, farenheit;
+    scanf("%f", &celsius);
+    farenheit = (1.8 * celsius) + 32.0;
+    printf("%f", farenheit);
+}
+void exercise_9(){
+    float rad, degrees;
+    const float PI 3.141592;
+    scanf("%f", &degrees);
+    rad = (PI * degrees) / 180;
+    printf("%f", rad);
+}
+void exercise_10(){
+    float value, fwinner, swinner, twinner;
+    value = 780,000.00;
+    fwinner = 0.46 * value;
+    swinner = 0.32 * value;
+    twinner = value - fwinner- swinner;
+    printf("%f %f %f", fwinner, swinner, twinner);
+}
+void exercise_11(){
+    float radium, area;
+    const float PI = 3.141592;
+    scanf("%f", &radium);
+    area = PI * radium * radium;
+    printf("%f", area);
+}
+void exercise_12(){
+    float radium, height, volume;
+    const float PI = 3.141592;
+    scanf("%f %f", radium, height);
+    volume = PI * radium * radium * height;
+    printf("%f", volume);
+}
+void exercise_13(){
+    float a, b, h;
+    scanf("%f %f", &a, &b);
+    h = sqrt(a*a + b*b);
+    printf("%f", h);
+}
+void exercise_14(){
+    char uc, dc;
+    scanf("%c", &uc);
+    dc = uc + 32;
+    printf("%c", dc);
+}
+void exercise_15(){
+    int num1, num2, num3, num4, num5, result;
+    scanf("%d", &num1);
+    num2 = num1 / 100; 
+    num3 = num1 % 100;
+    num4 = num3 / 10;
+    num5 = num3 % 10;
+    result = num5*100 + num4*10 + num2;
+    printf("%d", result);
+}
+void exercise_16(){
+    int num1, num2, num3;
+    scanf("%d", &num1);
+    num2 = num1 << 1;
+    num3 = num1 >> 1;
+    printf("%d %d", num2, num3);
+}
+void exercise_17(){
+    unsigned char num1, num2;
+    scanf("%d", &num1);
+    num2 = ~num1;
+    printf("%d", num2);
+}
+void exercise_18(){
+    int num1, num2, num3, num4, num5;
+    scanf("%d %d", &num1, &num2);
+    num3 = num1 * num2;
+    num4 = num3 << 1;
+    num5 = num3 >> 1;
+    printf("%d %d", num4, num5);
+}
+void exercise_19(){
+    int num1, num2, num3, num4, num5;
+    scanf("%d %d", &num1, &num2);
+    num3 = num1 & num2;
+    num4 = num1 | num2;
+    num5 = num1 ^ num2;
+    printf("%d %d %d", num3, num4, num5);
+}
