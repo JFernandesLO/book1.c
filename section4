@@ -1,0 +1,237 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+void exercise_1(){
+    int N = 0;
+    scanf("%d", &N);
+    for(int i = 0; i <= N; i++){
+        printf("%d ", i);
+    }
+}
+void exercise_2(){
+    int N = 0;
+    scanf("%d", &N);
+    for(int i = 0; i <= N; i++){
+    printf("%d ", N - i);
+    }
+}
+void exercise_3(){
+    int N = 0;
+    scanf("%d", &N);
+    for(int i = 1; i <= N; i= i + 2){
+        printf("%d ", i);
+    }
+}
+void exercise_4(){
+    for(int i = 1; i <=5 ; i++)
+    printf("%d ", 3*i);
+}
+void exercise_5{
+    int sum = 0;
+    for(int i = 0; i <= 100 ; i = i+2){
+        sum += i;
+    
+    }
+    printf("%d", sum);
+}
+void exercise_6(){
+    for(int i=10; i >= 0; i--){
+        printf("%d ", i);
+    }
+    printf("\nEND");
+}
+void exercise_7(){
+    int i = 1;
+    int N = 0;
+    int sum = 0;
+    while (i <= 10){
+        scanf("%d", &N);
+        sum += N;
+        i++;
+    }
+    printf("%d", sum);
+}
+void exercise_8(){
+    int i = 1;
+    float N = 0;
+    float sum = 0;
+    while (i <= 10){
+        scanf("%f", &N);
+        sum += N;
+        i++;
+    }
+    printf("%f", (sum / 10));
+}
+void exercise_9(){
+    int i = 1;
+    int N;
+    int biggerN = 0;
+    int smallerN = N;
+    while (i <= 10){
+        scanf("%d", &N);
+        if(N >= biggerN){
+            biggerN = N; 
+        }
+        if(N <= smallerN){
+            smallerN = N;
+        }
+        i++;
+    }
+    printf("%d %d", smallerN, biggerN);
+}
+void exercise_10(){
+    float N = 0;
+    float sum = 0;
+    int i = 1;
+    while(i <= 10){
+        scanf("%d", &N);
+        if (N >= 0){
+            sum += N;
+            i++;
+        }
+    }
+    printf("%f", (sum/10));
+}
+void exercise_11(){
+    int N = 0;
+    scanf("%d", &N);
+    for(int i = 1; i <= N; i++){
+        if( N % i == 0){
+            printf("%d ", i);
+        }
+    }
+}
+void exercise_12(){
+    int N = 0;
+    int sum = 0;
+    scanf("%d", &N);
+    for(int i = 1; i < N; i++){
+        if( N % i == 0){
+            sum += i;
+        }
+    }
+    printf("%d ", sum);
+}
+void exercise_13(){
+    int sum = 0;
+    for(int i = 0; i < 1000; i++){
+        if(i % 3 == 0 || i % 5 == 0){
+            sum += i;
+        }
+    }
+    printf("%d", sum);
+}
+void exercise_14(){
+    int n;
+    int seq = 1, seqA = 0, seqAux;
+    scanf("%d", &n);
+    n = n - 2;
+
+    while (n){
+        seqAux = seq;
+        seq += seqA;
+        seqA = seqAux;
+        n--;
+    }
+    printf("%d ", seq);
+}
+void exercise_15(){
+    int N;
+    int biggerN = 0;
+    int smallerN;
+    scanf("%d", &N);
+    while (N >= 0){
+        scanf("%d", &N);
+        if(N >= biggerN){
+            biggerN = N;
+        }
+        if(N <= smallerN && N >= 0){
+            smallerN = N;
+        }
+    }
+}
+void exercise_16(){
+    float Hn;
+    int N;
+    scanf("%d", &N);
+    for(int i = 1; i <= N; i++){
+        Hn += 1/i;
+    }
+    printf("%f", Hn);
+}
+void exercise_17(){
+    int N = 0;
+    int c = 0;
+    scanf("%d", &N);
+    for(int i = 1; i <= N; i++){
+        for(int j = 1; j <= i; j++){
+            c++;
+            printf("%d ", c);
+        }
+        printf("\n");
+    }
+}
+void exercise_18(){
+        int N;
+    int sum;
+    scanf("%d", &N);
+    for(int i = 1; i <= N; i++){
+        if(N % i == 0){
+        sum += i;
+        }
+    }
+    if(sum == (N+1)){
+        printf("prime");
+    }
+    else{
+        printf("non prime");
+    }
+}
+void exercise_19(){
+        float sum = 0;
+    for(float i = 1, j = 1; i <= 99, j <= 55; i=i+2, j++){
+        sum += i/j;
+    }
+    printf("%f", sum);
+}
+void exercise_20(){
+    float fact = 1;
+    float sum = 0;
+    float k = 1;
+    float N = 0;
+    scanf("%f", &N);
+    for(float i = 1; i <= N; i++){
+        for(float j = i; j >= 1; j--){
+            fact = fact * j;
+        }
+    k = 1/fact;
+    sum += k;
+    }
+    printf("%f", sum);
+}
+void exeercise_21(){
+    int qtt, j, biggerN;
+    int array[100];
+    scanf("%d", &qtt);
+    j=0;
+    biggerN = array[0];
+    for(int i = 0; i <= 99; i++){
+        array[i] = 0;
+    }
+    for(int i = 0; i < qtt; i++){
+        scanf("%d", &array[i]);
+    }
+    for(int i = 0; i < qtt; i++){
+    if(array[i] >= biggerN){
+        biggerN = array[i];    
+        }
+    }
+    for(int i = 0; i < qtt; i++){
+        if(array[i] == biggerN){
+        j++;
+        }
+    }    
+    printf("greatest number is %d read %d times", biggerN, j);
+
+}
