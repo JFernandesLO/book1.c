@@ -1,0 +1,248 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+void exercise_1(){
+    int matrix[3][3];
+    int smaller = matrix[0][0];
+    for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 3; j++){
+            scanf("%d", &matrix[i][j]);
+            if(matrix[i][j] <= smaller){
+                smaller = matrix[i][j];
+            }        
+        }  
+    }
+    printf("%d", smaller);
+
+void exercise_2(){
+    int matrix[4][4];
+    int k = 0, l = 0;
+    int bigger = matrix [0][0];
+    for(int i = 0; i < 4; i++){
+        for(int j = 0; j < 4; j++){
+            scanf("%d", &matrix[i][j]);
+            if(matrix[i][j] > bigger){
+                bigger = matrix[i][j];
+                k = i+1;
+                l = j+1;
+            }
+        }
+    }
+    printf("bigger element is %d, located in line %d column %d", bigger, k, l);
+}
+void exercise_3(){
+    int matrix [5][5];
+    printf("identity matrix is: \n");
+    for(int i = 0; i < 5; i++){
+        for(int j = 0; j < 5; j++){
+            if(i == j){
+                matrix[i][j] = 1;
+            }
+            else{
+                matrix[i][j] = 0;
+            }
+            printf("%d ", matrix[i][j]);
+        }
+        printf("\n");
+    }
+}
+void exercise_4{
+        int matrix[4][4];
+    int count = 0;
+    for(int i = 0; i < 4; i++){
+        for(int j = 0; j < 4; j++){
+            scanf("%d", &matrix[i][j]);
+            if(matrix[i][j] > 10){
+                count++;
+            }
+        }
+    }
+    printf("%d", count);
+
+}
+void exercise_5(){
+    int matrix[4][4];
+    int count = 0;
+    for(int i = 0; i < 4; i++){
+        for(int j = 0; j < 4; j++){
+            scanf("%d", &matrix[i][j]);
+            if(matrix[i][j] < 0){
+                count++;
+            }
+        }
+    }
+    printf("%d", count);
+}
+void exercise_6(){
+    int matrix[3][3];
+    int sum = 0;
+    for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 3; j++){
+            scanf("%d", &matrix[i][j]);
+            if(i == j){
+                sum += matrix[i][j];
+            }
+        }
+    }
+    printf("%d", sum);
+}
+void exercise_7(){
+    int matrix[3][3];
+    int sum = 0;
+    for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 3; j++){
+            scanf("%d", &matrix[i][j]);
+            if(i + j == 4){
+                sum += matrix[i][j];
+            }
+        }
+    }
+    printf("%d", sum);
+}
+void exercise_8(){
+    int matrix[10][10];
+    for(int i = 0; i < 10; i++){
+        for(int j = 0; j < 10; j++){
+            if(i < j){
+                matrix[i][j] = 2*i + 7*j - 2;
+            }
+            if(i == j){
+                matrix[i][j] = 3*i*i - 1;
+            }
+            if(i > j){
+                matrix[i][j] = 4*i*i*i + 5*j*j + 1;
+            }
+            printf("%d ", matrix[i][j]);
+        }
+        printf("\n");
+    }
+}
+void exercise_9(){
+    int matrix[3][3];
+    int array[3];
+    for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 3; j++){
+            scanf("%d", &matrix[i][j]);
+        }
+        array[i] = 0;
+    }
+    for(int k = 0; k < 3; k++){
+        for(int l = 0; l < 3; l++){
+            array[k] += matrix[k][l];
+        }
+        printf("%d ", array[k]);
+
+    }
+}
+void exercise_10 (){
+    int matrix[10][3];
+    int k = 0, lowest = 10;
+    int count1 = 0, count2 = 0, count3 = 0;
+    for(int i = 0; i < 10; i++){
+        printf("%d student\n", i+1);
+        for(int j = 0; j < 3; j++){
+            printf("test %d: ", j+1);
+            scanf("%d", &matrix[i][j]);
+            if(matrix[i][j] < lowest){
+                lowest = matrix [i][j];
+                k = j;
+            }
+        }
+        if(k == 0){
+            count1++;
+        }
+        if(k == 1){
+            count2++;
+        }
+        if(k == 2){
+            count3++;
+        }
+    }
+    printf("the number of students who got the lowest grade in test 1 was %d, in test 2 was %d and in test 3 was %d", count1, count2, count3);
+}
+void exercise_11(){
+        int matrix[5][5];
+    int sum = 0;
+    for(int i = 0; i < 5; i++){
+        for(int j = 0; j < 5; j++){
+            scanf("%d", &matrix[i][j]);
+            if(i < j){
+                sum += matrix[i][j];
+            }
+        }
+    }
+    printf("%d", sum);
+
+}
+void exercise_12(){
+    int matrix[6][6];
+    int sum = 0;
+    for(int i = 0; i < 6; i++){
+        for(int j = 0; j < 6; j++){
+            scanf("%d", &matrix[i][j]);
+            if(i > j){
+                sum += matrix[i][j];
+            }
+        }
+    }
+    printf("%d", sum);
+}
+void exercise_13(){
+        int matrix[5][5];
+    int sum = 0;
+    for(int i = 0; i < 5; i++){
+        for(int j = 0; j < 5; j++){
+            scanf("%d", &matrix[i][j]);
+            if(i != j){
+                if(i + j != 6)
+                sum += matrix[i][j];
+            }
+        }
+    }
+    printf("%d", sum);
+}
+void exercise_14(){
+    int matrix[5][5];
+    int sum1 = 0, sum2 = 0, difference = 0;
+    for(int i = 0; i < 5; i++){
+        for(int j = 0; j < 5; j++){
+            scanf("%d", &matrix[i][j]);
+            if(i != j){
+                if(i + j != 6)
+                sum2 += matrix[i][j];
+            }
+            else{
+                if(i + j == 6){
+                    sum1 += matrix[i][j];
+                }
+            }
+        }
+    }
+    difference = sum1 - sum2;
+    printf("%d", difference);
+}
+void exercise_15(){
+        int A[5][5];
+    int B[5][5];
+    for(int i = 0; i < 5; i++){
+        for(int j = 0; j < 5; j++){
+            scanf("%d", &A[i][j]);
+        }
+    }
+    for(int i = 0; i < 5; i++){
+        for(int j = 0; j < 5; j++){
+            B[i][j] = 0;
+        }
+    }
+    for(int i = 0; i < 5; i++){  
+        for(int j = 0; j < 5; j++){
+            for(int k = 0; k < 5; k++){
+                B[i][j] += A[i][k] * A[k][j];
+            }
+            printf("%d ", B[i][j]);
+        }
+        printf("\n");
+    }
+}
+
