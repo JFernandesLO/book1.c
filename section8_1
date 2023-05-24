@@ -1,0 +1,412 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+
+void exercise_1(){
+void int_float(float n, int *i, float *f){
+    *i = n;
+    *f = n - *i;
+    printf("the integer part is %d and the float part is %f", *i, *f);
+}
+int main(){
+    float n, f;
+    int i;
+    printf("type a real number: ");
+    scanf("%f", &n);
+    int_float(n, &i, &f);
+}
+}
+void exercise_2(){
+    float area_sphere(float r, float *a){
+    *a = 4*PI*r*r;
+    return *a;
+}
+float volume_sphere(float r, float *v){
+    *v = (4*PI*r*r*r)/3;
+    return *v;
+}
+int main(){
+    float r, a, v;
+    printf("type a value for the radius: ");
+    scanf("%f", &r);
+    v = volume_sphere(r, &v);
+    a = area_sphere(r, &a);
+    printf("the area is %f and the volume is %f", a, v);
+}
+}
+exercise_3(){
+    float array(float m[10]){
+    float sum = 0;
+    for(int i = 0; i < 10; i++){
+        sum += m[i];
+    }
+    return sum;
+}
+int main(){
+    float a[10], ans;
+    for(int i = 0; i < 10; i++){
+        printf("type the %d element: ", i+1);
+        scanf("%f", &a[i]);
+    }
+    ans = array(a);
+    printf("the sum is %.2f", ans);
+}
+}
+exercise_4(){
+    float array(float g[10]){
+    float sum = 0, avg = 0;
+    for(int i = 0; i < 10; i++){
+        sum += g[i];
+    }
+    avg = sum/10;
+    return avg;
+}
+int main(){
+    float a[10], ans;
+    for(int i = 0; i < 10; i++){
+        printf("type the %d grade: ", i+1);
+        scanf("%f", &a[i]);
+    }
+    ans = array(a);
+    printf("the average is %.2f", ans);
+}
+}
+void exercise_5(){
+    float deviation(float m[], int n){
+    float sum = 0, avg;
+    float dev, num = 0, den;
+    for(int i = 0; i < n; i++){
+        sum += m[i];
+    }
+    avg = sum/n;
+    for(int i = 0; i < n; i++){
+        num += pow((m[i] - avg), 2);
+    }
+    den = n;
+    dev = sqrt(num/den);
+    return dev;
+}
+int main(){
+    int n;
+    printf("type the amount of number for the calculation of the standard deviation: ");
+    scanf("%d", &n);
+    float v[n], ans;
+    for(int i = 0; i < n; i++){
+        printf("type the %d number: ", i+1);
+        scanf("%f", &v[i]);
+    }
+    ans = deviation(v, n);
+    printf("the standard deviation is: %f", ans);
+}
+}
+void exercise_6(){
+    void trans_matrix(int A[5][5]){
+    int B[5][5];
+    for(int i = 0; i < 5; i++){
+        for(int j = 0; j < 5; j++){
+            B[j][i] = A[i][j];
+        }
+    }
+    for(int i = 0; i < 5; i++){
+        for(int j = 0; j < 5; j++){
+            A[i][j] = B[i][j];
+        }
+    }
+    for(int i = 0; i < 5; i++){
+        for(int j = 0; j < 5; j++){
+            printf("%d ", A[i][j]);
+        }
+        printf("\n");
+    }
+    
+}
+int main(){
+    int mat[5][5];
+    for(int i = 0; i < 5; i++){
+        for(int j = 0; j < 5; j++){
+            printf("type the element for line %d column %d: ", i+1, j+1);
+            scanf("%d", &mat[i][j]);
+        }
+    }
+    trans_matrix(mat);
+}
+}
+void exercise_7(){
+    int sum_matrix(int A[10][10]){
+    int sum = 0;
+    for(int i = 0; i < 10; i++){
+        for(int j = 0; j < 10; j++){
+            sum += A[i][j];
+        }
+    }
+    return sum;
+}
+int main(){
+    int mat[10][10], ans;
+    for(int i = 0; i < 10; i++){
+        for(int j = 0; j < 10; j++){
+            printf("type the element for line %d column %d: ", i+1, j+1);
+            scanf("%d", &mat[i][j]);
+        }
+    }
+    ans = sum_matrix(mat);
+    printf("the sum of the elements from the matriz is: %d", ans);
+}
+void exercise_8(){
+    int sum_matrix_mdiag(int A[6][6]){
+    int sum = 0;
+    for(int i = 0; i < 10; i++){
+        for(int j = 0; j < 10; j++){
+            if(i == j){
+              sum += A[i][j];  
+            }
+        }
+    }
+    return sum;
+}
+int sum_matrix_sdiag(int A[6][6]){
+    int sum = 0;
+    for(int i = 0; i < 10; i++){
+        for(int j = 0; j < 10; j++){
+            if(i + j == 7){
+              sum += A[i][j];  
+            }
+        }
+    }
+    return sum;
+}
+int main(){
+    int mat[6][6], ansm, anss;
+    for(int i = 0; i < 6; i++){
+        for(int j = 0; j < 6; j++){
+            printf("type the element for line %d column %d: ", i+1, j+1);
+            scanf("%d", &mat[i][j]);
+        }
+    }
+    ansm = sum_matrix_mdiag(mat);
+    anss = sum_matrix_sdiag(mat);
+    printf("the sum of the elements from the main and from the secondary diagonal of the matrix is: %d and %d", ansm, anss);
+}
+}
+void exercise_9(){
+    struct students{
+    char name[50];
+    int reg;
+    float g1, g2, g3;
+};
+int grades(struct students s[], float avg[], int N){
+    float biggeravg = avg[0];
+    int j = 0;
+    for(int i = 0; i < N; i++){
+        avg[i] = (s[i].g1 + s[i].g2 + s[i].g3)/3;
+        if(biggeravg > avg[i]){
+            biggeravg = avg[i];
+            j = i+1;
+        }
+    }
+    return j;
+}
+int main(){
+    int N, ans;
+    printf("type the number os students: ");
+    scanf("%d", &N);
+    struct students s[N];
+    float avg[N];
+    for(int i = 0; i < N; i++){
+        printf("---TYPE THE DATA FOR THE %d STUDENT---\n", i+1);
+        printf("---NAME---\n");
+        fflush(stdin);
+        gets(s[i].name);
+        printf("---REGISTRATION NUMBER---\n");
+        scanf("%d", &s[i].reg);
+        printf("---FIRST GRADE---\n");
+        scanf("%f", &s[i].g1);
+        printf("---SECOND GRADE---\n");
+        scanf("%f", &s[i].g2);
+        printf("---THIRD GRADE---\n");
+        scanf("%f", &s[i].g3);
+    }
+    ans = grades(s, avg, N);
+    printf("the index of the student with the bigger average is %d", ans);
+
+}
+}
+void exercise_10(){
+    int palindrome(char word[], char wordbck[], int n){
+    for(int i = 0, j = n-1; i < n, j >= 0; i++, j--){
+        wordbck[i] = word[j];
+    }
+    if(*wordbck == *word){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+int main(){
+    char word[50], wordbck[50];
+    int n, ans;
+    printf("type a word: ");
+    scanf("%s", &word);
+    n = strlen(word);
+    ans = palindrome(word, wordbck, n);
+    printf("%d", ans);
+}
+}
+void exercise_11(){
+    void upper_string(char str[], int n){
+    for(int i = 0; i < n; i++){
+        if(str[i] >= 97 && str[i] <= 122){
+            str[i] -= 32;
+        }
+        printf("%c", str[i]);
+    }
+}
+int main(){
+    char str[100];
+    int n;
+    printf("type a string: ");
+    gets(str);
+    n = strlen(str);
+    upper_string(str, n);
+}
+}
+void exercise_12(){
+    void sum(int array[], int n, int *sumEven, int *sumOdd){
+    for(int i = 0; i < n; i++){
+        if(array[i] % 2 == 0){
+            *sumEven += array[i];
+        }
+        else{
+            *sumOdd += array[i];
+        }
+    }
+    printf("the sum of the evens is %d and the sum of the odds is %d", *sumEven, *sumOdd);    
+}
+int main(){
+    int n, sumEven = 0, sumOdd = 0;
+    printf("type the amount of numbers you want on the array: ");
+    scanf("%d", &n);
+    int array[n];
+    for(int i = 0; i < n; i++){
+        printf("type the %d value: ", i+1);
+        scanf("%d", &array[i]);
+    }
+    sum(array, n, &sumEven, &sumOdd);
+}
+}
+void exercise_13{
+    
+void ordering(int array[], int n){
+    for(int i = 0; i < n; i++){
+        for(int j = n-1; j > i; j--){
+            if(array[i] > array[j]){
+                int temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+        }
+    }
+    for(int i = 0; i < n; i++){
+        printf("%d ", array[i]);
+    }   
+}
+int main(){
+    int n;
+    printf("type the amount of numbers you want in the array: ");
+    scanf("%d", &n);
+    int array[100];
+    for(int i = 0; i < n; i++){
+        printf("type the %d value: ", i+1);
+        scanf("%d", &array[i]);
+    }
+    ordering(array, n);
+    return 0;
+}
+}
+void exercise_14(){
+    
+int secdegree_eq(float a, float b, float c, float *x1, float *x2){
+    if(a == 0){
+        printf("not a secong degree equation ");
+        return -1;
+    }
+    float delta;
+    delta = ((b*b) - (4*a*c));
+    if(delta > 0){
+        *x1 = ((-b + sqrt(delta))/(2*a));
+        *x2 = ((-b - sqrt(delta))/(2*a));
+        printf("roots are %.2f and %.2f\nnumber of real roots is: ", *x1, *x2);
+        return 2;
+    }
+    if(delta == 0){
+        *x1 = (-b/(2*a));
+        printf("root is %.2f\nnumber of real root is: ", *x1);
+        return 1;
+    }
+    if(delta < 0){
+        printf("number of real roots is: ");
+        return 0;
+    }
+}
+int main(){
+    float a, b, c, x1, x2;
+    int ans;
+    printf("type the equation coefficients: ");
+    scanf("%f %f %f", &a, &b, &c);
+    ans = secdegree_eq(a, b, c, &x1, &x2);
+    printf("%d", ans);
+}
+}
+void exercise_15(){
+void small_big(int array[], int n, int *bigger, int *smaller){
+    for(int i = 0; i < n; i++){
+        if(array[i] > *bigger){
+            *bigger = array[i];
+        }
+        if(array[i] < *smaller){
+            *smaller = array[i];
+        }
+    }
+    printf("bigger element is %d smaller element is %d", *bigger, *smaller);
+}
+int main(){
+    int n, bigger = 0, smaller = 0;
+    printf("type the lenght of the array: ");
+    scanf("%d", &n);
+    int array[n];
+    for(int i = 0; i < n; i++){
+        printf("type the %d element: ", i+1);
+        scanf("%d", &array[i]);
+    }
+    small_big(array, n, &bigger, &smaller);
+}
+}
+void exercise_16(){
+    
+void big_count(int array[], int n, int *bigger, int *count){
+    for(int i = 0; i < n; i++){
+        if(array[i] > *bigger){
+            *bigger = array[i];
+        }
+    }
+    for(int i = 0; i < n; i++){
+        if(array[i] == *bigger){
+            (*count)++;
+        }
+    }
+    printf("bigger element is %d which appears %d times", *bigger, *count);
+}
+int main(){
+    int n, bigger = 0, count = 0;
+    printf("type the lenght of the array: ");
+    scanf("%d", &n);
+    int array[n];
+    for(int i = 0; i < n; i++){
+        printf("type the %d element: ", i+1);
+        scanf("%d", &array[i]);
+    }
+    big_count(array, n, &bigger, &count);
+}
+}
