@@ -1,0 +1,160 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void exercise_1(){
+    FILE *fp;
+    int n = 1;
+    char fname[100];
+    printf("type the adress of the file: ");
+    gets(fname);
+    fp = fopen(fname, "r");
+    if(fp == NULL){
+        printf("couldnt open the file");
+        return 1;
+    }
+    while(!feof(fp)){
+        if(getc(fp) == '\n'){
+            n++;
+        }
+    }
+    printf("file has %d lines", n);
+    fclose(fp);
+    return 0;
+}
+void exercise_2(){
+    FILE *fp1, *fp2, *fp3;
+    char fname1[100], fname2[100], fname3[100];
+    printf("type the adress of the first file: ");
+    gets(fname1);
+    printf("type the adress of the second file: ");
+    gets(fname2);
+    printf("type the adress of the third file: ");
+    gets(fname3);
+    fp1 = fopen(fname1, "r");
+    if(fp1 == NULL){
+        printf("couldnt open the file");
+        return 1;
+    }
+    fp3 = fopen(fname3, "w");
+    if(fp3 == NULL){
+        printf("couldnt create the file");
+        fclose(fp1);
+        fclose(fp2);
+        return 1;
+    }
+    char c1;
+    while((c1 = fgetc(fp1)) != EOF){
+        fputc(c1, fp3);
+    }
+    fclose(fp1);
+    fp2 = fopen(fname2, "r");
+    if(fp2 == NULL){
+        printf("couldnt open the file");
+        return 1;
+    }
+    char c2;
+    fputc('\n', fp3);
+    while((c2 = fgetc(fp2)) != EOF){
+        fputc(c2, fp3);
+    }
+    fclose(fp2);
+    fclose(fp3);
+    return 0;
+}
+void exercise_3(){
+    FILE *fp1, *fp2;
+    char fname1[100], fname2[100];
+    printf("type the name of the first file: ");
+    gets(fname1);
+    printf("type the name of the second file: ");
+    gets(fname2);
+    fp1 = fopen(fname1, "r");
+    fp2 = fopen(fname2, "w");
+    if(fp1 == NULL){
+        printf("couldnt open the file");
+        return 1;
+    }
+    if(fp2 == NULL){
+        printf("couldnt create the file");
+        return 1;
+    }
+    char c1;
+    while((c1 = fgetc(fp1)) != EOF){
+        fputc(toupper(c1), fp2);
+    }
+    fclose(fp1);
+    fclose(fp2);
+    return 0;
+}
+void exercise_4(){
+    FILE *fp1;
+    char fname1[100], word[30], line[200];
+    int count = 0;
+    printf("type the name of the first file: ");
+    gets(fname1);
+    printf("type the word you want to search: ");
+    gets(word);
+    fp1 = fopen(fname1, "r");
+    if(fp1 == NULL){
+        printf("couldnt open the file");
+        return 1;
+    }
+    while(fgets(line, sizeof(line), fp1) != NULL){
+        char *ocr = strstr(line, word);
+        while(ocr != NULL){
+            count++;
+            ocr = strstr(ocr + strlen(word), word);
+        }
+    }
+    fclose(fp1);
+    printf("the word %s appears %d times", word, count);
+    return 0;
+}
+void exercise_6(){
+    int dec_bin(int num){
+        int pos = 0, nbin = 0, naux, i = 0;
+        naux = num;
+        while(naux != 1){
+            naux /= 2;
+            i++;
+        }
+        while(pos <= i){
+            nbin += (num % 2)*pow(10, pos);
+            num /= 2;
+            pos++;
+        }
+    return nbin;
+    }
+int main(){
+    FILE *fp;
+    int num = 1, nbin;
+    fp = fopen("file2.txt", "w");
+    while(num >= 0){
+        printf("type a number: ");
+        scanf("%d", &num);
+        if(num >= 0){
+            nbin = dec_bin(num);
+            fprintf(fp, "%d\n", nbin);
+        }
+    }
+    fclose(fp);
+    return 0;
+}
+}
+void exercise_6(){
+        FILE *fp;
+    int qtt;
+    char prod[30];
+    float prc, total = 0;
+    fp = fopen("market.txt", "r");
+    if(fp == NULL){
+        printf("couldnt open the file");
+        return 1;
+    }
+    while(fscanf(fp, "%s %d %f", prod, &qtt, &prc) == 3){
+        total += (qtt*prc);
+    }
+    fclose(fp);
+    printf("the total is: %f", total);
+    return 0;
+} 
